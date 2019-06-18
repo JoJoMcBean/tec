@@ -257,3 +257,10 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 42ms (Views: 37.2ms | ActiveRecord: 0.0ms | Allocations: 1694)
 
 
+Started GET "/" for ::1 at 2019-06-18 16:20:24 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/ankita/.rvm/gems/ruby-2.6.3/gems/railties-6.0.0.rc1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/ankita/.rvm/gems/ruby-2.6.3/gems/railties-6.0.0.rc1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.7ms | Allocations: 472)
+Completed 200 OK in 17ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 2718)
+
+
