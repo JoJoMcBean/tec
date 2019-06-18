@@ -264,3 +264,19 @@ Processing by Rails::WelcomeController#index as HTML
 Completed 200 OK in 17ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 2718)
 
 
+Started GET "/" for ::1 at 2019-06-18 17:40:07 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/fonzo/.rvm/gems/ruby-2.6.3/gems/railties-6.0.0.rc1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/fonzo/.rvm/gems/ruby-2.6.3/gems/railties-6.0.0.rc1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.5ms | Allocations: 309)
+Completed 200 OK in 25ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 1765)
+
+
+Started GET "/" for ::1 at 2019-06-18 17:48:35 -0500
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 225)
+[Webpacker] Compiling…
+[Webpacker] Compiled all packs in /home/fonzo/tec/public/packs
+Completed 200 OK in 10556ms (Views: 10545.2ms | ActiveRecord: 0.0ms | Allocations: 1351993)
+
+
