@@ -280,3 +280,10 @@ Processing by HomepageController#index as HTML
 Completed 200 OK in 10556ms (Views: 10545.2ms | ActiveRecord: 0.0ms | Allocations: 1351993)
 
 
+Started GET "/" for ::1 at 2019-06-19 15:59:36 -0500
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 225)
+Completed 200 OK in 2427ms (Views: 2412.8ms | ActiveRecord: 0.0ms | Allocations: 1343249)
+
+
