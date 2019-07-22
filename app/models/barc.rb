@@ -1,0 +1,3 @@
+class Barc < ApplicationRecord
+	
+end

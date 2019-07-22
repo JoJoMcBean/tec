@@ -1,1 +1,268 @@
-<h1>select account type</h1>
+<head>
+  <title>Mercury Editor: The Rails HTML5 WYSIWYG Editor</title>
+  <meta charset='utf-8'>
+  <link href="/mercury/assets/stylesheets/bootstrap.min.css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="/mercury/assets/stylesheets/bootstrap-responsive.min.css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="/mercury/assets/stylesheets/application.css" media="all" rel="stylesheet" type="text/css"/>
+
+  <script src="/mercury/assets/javascripts/jquery.min.js" type="text/javascript"></script>
+  <script src="/mercury/assets/javascripts/bootstrap.min.js" type="text/javascript"></script>
+
+  <script src="/mercury/assets/javascripts/mercury_loader.js?src=/mercury/assets&pack=bundled&visible=false" type="text/javascript"></script>
+  <script src="http://twitterjs.googlecode.com/svn/trunk/src/twitter.min.js" type="text/javascript"></script>
+
+  <script type="text/javascript">
+    jQuery(function() {
+      $('.browser').tooltip({});
+    });
+    jQuery(window).on('mercury:ready', function() {
+      // do whatever additional loading that should happen here
+      // you can also make simple changes to default functionality here
+      Mercury.PageEditor.prototype.save = function() {
+        var data = this.serialize();
+        var lightview = Mercury.lightview(null, {title: 'Saving', closeButton: true});
+        setTimeout(function() {
+          var textarea = '<textarea style="width:100%;height:300px" wrap="off">' + top.JSON.stringify(data, null, '  ') + '</textarea>';
+          lightview.loadContent('<div style="width:500px">Saving in the demo is disabled, but you can see what would be sent to the server below.' + textarea + '</div>');
+        }, 500);
+      }
+    });
+
+    function toggleMercury() {
+      if (typeof(Mercury) == 'undefined') {
+        alert("Sorry, but Mercury Editor isn't supported by your current browser.\n\nBrowsers that support the required HTML5 spec:\n\n  Chrome 10+\n  Firefox 4+\n  Safari 5+\n  Opera 11.64+\n  Mobile Safari (iOS 5+)");
+      } else {
+        Mercury.trigger('toggle:interface');
+      }
+    }
+  </script>
+</head>
+<body class="home">
+
+  <div id="navigation" class="navbar navbar-fixed-top">
+    <a class="hidden-tablet hidden-phone" href="https://github.com/jejacks0n/mercury"><img style="position: absolute; z-index: 2000; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+    <div class="navbar-inner">
+      <div class="container">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="brand" class="active" href="/mercury">Mercury Editor</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li><a href="/mercury/downloads">Downloads</a></li>
+            <li><a href="/mercury/documentation">Documentation</a></li>
+            <li><a href="/mercury/walkthrough">Walkthrough</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="body" class="container">
+
+    <div id="hero" class="hero-unit">
+      <div id="hero_content" data-mercury="full">
+        <h1>Mercury Editor</h1>
+        <br/>
+        <h2>Mercury is a <strong>full featured</strong> HTML5 editor. It was built from the ground up to help your team <strong>get the most</strong> out of <strong>content editing</strong> in modern browsers.</h2>
+      </div>
+      <br/>
+      <br/>
+      <div class="installation">gem 'mercury-rails'<br/>rails generate mercury:install</div>
+      <br/>
+      <br/>
+      <p class="buttons">
+        <a href="javascript:toggleMercury()" class="btn btn-primary btn-large">Check out the Demo</a>
+        <a href="https://github.com/jejacks0n/mercury" class="btn btn-large">View project on GitHub</a>
+        <a href="https://github.com/downloads/jejacks0n/mercury/mercury-v0.9.0.zip" class="btn btn-large">Download Mercury <small>(v0.9.0)</small></a>
+      </p>
+    </div>
+
+    <div id="social">
+      <ul class="support-links">
+        <li><a href="https://github.com/jejacks0n/mercury/issues?direction=desc&sort=created&state=open">Submit Issues</a></li>
+        <li><a href="https://github.com/jejacks0n/mercury/wiki">The Mercury Wiki</a></li>
+        <li><a href="https://www.pivotaltracker.com/projects/295823">Pivotal Tracker Project</a></li>
+      </ul>
+      <ul class="buttons">
+        <li><iframe src="http://ghbtns.com/github-btn.html?user=jejacks0n&repo=mercury&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe></li>
+        <li><iframe src="http://ghbtns.com/github-btn.html?user=jejacks0n&repo=mercury&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe></li>
+        <li><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://jejacks0n.github.com/mercury" data-text="Mercury Editor">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></li>
+      </ul>
+    </div>
+
+    <hr class="soften"/>
+
+    <div id="marketing">
+      <h1 id="marketing_title" data-mercury="simple">Built to handle your content needs.</h1>
+      <p id="marketing_byline" class="marketing-byline" data-mercury="simple">Built from the ground up to help your team get the most out of content editing in modern browsers.</p>
+
+      <div class="row">
+        <div id="marketing_simple" class="span4" data-mercury="full">
+          <img class="icon" src="/mercury/assets/images/aspect-simple.png">
+          <h2>Simple</h2>
+          <p>Mercury comes bundled as a Rails Engine, so just include it in your Gemfile.  Or download the current bundled package if you're not using Rails.</p>
+        </div>
+        <div id="marketing_unobtrusive" class="span4" data-mercury="full">
+          <img class="icon" src="/mercury/assets/images/aspect-unobtrusive.png">
+          <h2>Unobtrusive</h2>
+          <p>We don't inject javascript or css into your production pages so you're free to use whatever frameworks you want without having to worry about conflicts.</p>
+        </div>
+        <div id="marketing_configurable" class="span4" data-mercury="full">
+          <img class="icon" src="/mercury/assets/images/aspect-configurable.png">
+          <h2>Configurable</h2>
+          <p>Easily add or remove toolbar items or create entirely new tools.  Any toolbar item can be tied to an action using behaviors and the command pattern.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div id="marketing_extendable" class="span4" data-mercury="full">
+          <img class="icon" src="/mercury/assets/images/aspect-extendable.png">
+          <h2>Extendable</h2>
+          <p>Full HTML, Simple, Markdown, Snippet and Image regions are supported by default, but you can just extend the base regions to build your own types.</p>
+        </div>
+        <div id="marketing_html5" class="span4" data-mercury="full">
+          <img class="icon" src="/mercury/assets/images/aspect-html.png">
+          <h2>HTML5</h2>
+          <p>Built on top of the HTML5 contentEditable features, it natively supports the all the fancy new HTML5 elements, syntax, and JavaScript APIs.</p>
+        </div>
+        <div id="marketing_open_source" class="span4" data-mercury="full">
+          <img class="icon" src="/mercury/assets/images/aspect-open-source.png">
+          <h2>Open-source</h2>
+          <p>Built for and maintained by the community via <a href="https://github.com" target="blank">GitHub</a>.  You can track or report issues, contribute code or translations, and keep up with the project.</p>
+        </div>
+      </div>
+
+      <div id="support">
+        <div>
+          <img class="browser" title="Chrome 10+" alt="Chrome" src="/mercury/assets/images/browsers/chrome.png" width="31" height="31"/>
+          <img class="browser" title="Firefox 4+" alt="Firefox" src="/mercury/assets/images/browsers/firefox.png" width="31" height="31"/>
+          <img class="browser" title="Safari 5+" alt="Safari" src="/mercury/assets/images/browsers/safari.png" width="31" height="31"/>
+          <img class="browser" title="Opera 11.64+" alt="Opera" src="/mercury/assets/images/browsers/opera.png" width="31" height="31"/>
+          <img title="IE 9+" alt="IE" src="/mercury/assets/images/browsers/ie.png" width="31" height="31"/>
+          <img class="browser" title="Mobile Safari (iOS 5+)" alt="Mobile Safari" src="/mercury/assets/images/browsers/mobile-safari.png" width="31" height="31"/>
+        </div>
+        <br/>
+        <p>All browsers that implement the complete <a href="http://www.w3.org/TR/2008/WD-html5-20080610/editing.html" target="_blank">W3C contentEditable specification</a> are supported.</p>
+      </div>
+    </div>
+
+    <hr class="soften"/>
+
+    <div id="regions">
+      <h1>Flexible and useful out of the box.</h1>
+      <p class="marketing-byline">Mercury comes with some predefined regions that will cover all your content editing needs.</p>
+
+      <div class="row">
+        <div id="snippets" class="span12" data-mercury="snippets">
+          <div class="row">
+            <div class="span6" data-snippet="">
+              <div class="contents">
+                <h3>Full HTML Regions</h3>
+                <p>Full HTML markup that utilizes the HTML5 contentEditable feature.  These are the core of what Mercury Editor does, and provide the most flexibility.</p>
+              </div>
+            </div>
+            <div class="span6" data-snippet="">
+              <div class="contents">
+                <h3>Simple Regions</h3>
+                <p>Plain text, newlines and markup aren't allowed.  Appropriate for titles, headlines, or any area where you want just the content and not the styles.</p>
+              </div>
+            </div>
+            <div class="span6" data-snippet="">
+              <div class="contents">
+                <h3>Markdown Regions</h3>
+                <p>Based on the <a href="http://github.github.com/github-flavored-markdown/" target="_blank">Github flavored</a> Markdown syntax.  These are useful if you want to keep the markup flexible, while still clean and simple.</p>
+              </div>
+            </div>
+            <div class="span6" data-snippet="">
+              <div class="contents">
+                <h3>Snippets Regions</h3>
+                <p>Allows snippets but not content.  Snippets are chunks of reusable markup or code defined by a developer and can be placed into content later.</p>
+              </div>
+            </div>
+            <div class="span6" data-snippet="">
+              <div class="contents">
+                <h3>Image Regions</h3>
+                <p>Only applied to image tags, it results in the image being drag-and-drop replaceable.  Great for images you don't want within content regions.</p>
+              </div>
+            </div>
+            <div class="span6" data-snippet="">
+              <div class="contents">
+                <h3>Custom Regions</h3>
+                <p>When the provided regions don't give you what you need, create your own based on your specific needs.  You'll be the most appreciated developer.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="soften"/>
+
+    <div id="additional">
+      <div class="row">
+        <div class="span2">
+          <h3><i class="icon-search"></i> Preview</h3>
+          <p>Preview content while you're working to see exactly how it'll look.</p>
+        </div>
+        <div class="span2">
+          <h3><i class="icon-flag"></i> Localization</h3>
+          <p>Built in low profile translation and internationalization system.</p>
+        </div>
+        <div class="span2">
+          <h3><i class="icon-share-alt"></i> Link Tools</h3>
+          <p>Insert and edit links, including TOC & Bookmark links.</p>
+        </div>
+        <div class="span2">
+          <h3><i class="icon-picture"></i> Media Tools</h3>
+          <p>Insert and edit images, youtube videos, and vimeo videos.</p>
+        </div>
+        <div class="span2">
+          <h3><i class="icon-th"></i> Table Editing</h3>
+          <p>Advanced visual table editing and creation within content.</p>
+        </div>
+        <div class="span2">
+          <h3><i class="icon-file"></i> Snippets</h3>
+          <p>Insert predefined reusable bits of markup using drag and drop.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span2">
+          <h3><i class="icon-upload"></i> Image Upload</h3>
+          <p>Drag images from your desktop to automatically uploaded and insert them.</p>
+        </div>
+        <div class="span2">
+          <h3><i class="icon-edit"></i> Regions</h3>
+          <p>Build from the existing HTML, markdown, snippet, simple, and image regions.</p>
+        </div>
+        <div class="span2">
+          <h3><i class="icon-play"></i> Rails</h3>
+          <p>Build on top of Rails and the asset pipeline.  Watch the <a href="http://railscasts.com/episodes/296-mercury-editor" target="_blank">RailsCast</a> for an introduction.</p>
+        </div>
+        <div class="span2">
+          <h3><i class="icon-check"></i> Tested</h3>
+          <p>Tested using <a href="http://pivotal.github.com/jasmine/" target="_blank">Jasmine</a> and <a href="http://cukes.info/" target="_blank">Cucumber</a> to ensure production ready code.</p>
+        </div>
+        <div class="span2">
+          <h3><i class="icon-ok-circle"></i> Licensing</h3>
+          <p>Released under the <a href="http://creativecommons.org/licenses/MIT/" target="_blank">MIT License</a> so you can do what you want.</p>
+        </div>
+        <div class="span2">
+          <h3><i class="icon-heart"></i> Love</h3>
+          <p>Made with love, contributed to by many amazing developers and designers.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <p class="pull-right"><a href="#" class="ignored">Back to top</a></p>
+      <p>Code Licensed under the <a href="http://creativecommons.org/licenses/MIT/" target="_blank">MIT License</a>.  Copyright 2011 Jeremy Jackson. All rights reserved.</p>
+      <p>Icons from <a href="http://glyphicons.com" target="_blank">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>.</p>
+    </div>
+
+  </div>
+  <script>
+     jQuery(parent).trigger('initialize:frame');
+  </script>
+</body>
